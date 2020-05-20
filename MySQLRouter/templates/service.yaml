@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mysql8chart.fullname" . }}
+  labels:
+{{ include "mysql8chart.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: mysqlrouterrw
+      port: {{ .Values.service.rwport }}
+      targetPort: {{ .Values.service.rwport }}
+    - name: mysqlrouterro
+      port: {{ .Values.service.roport }}
+      targetPort: {{ .Values.service.roport }}
+
+  selector:
+    app.kubernetes.io/name: {{ include "mysql8chart.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
