@@ -1,8 +1,8 @@
 # Helm handy comands
 ### Author: Sudi
-This is Helm chart for mysqlrouter.
-docker image: [https://hub.docker.com/r/mysql/mysql-router/]
-make sure helm is installed on your k8s machine
+This is Helm chart for mysqlrouter<br>
+docker image: [https://hub.docker.com/r/mysql/mysql-router/]<br>
+
 >package the helm chart for mysqlrouter
 - helm package MySQLRouter
 >install the helm chart
@@ -12,7 +12,7 @@ make sure helm is installed on your k8s machine
 > delete the helm permanently
 - helm delete --purge mysqlrouter
 
-#####NoTE: you need to give based64 value for this 4 variables defined under secret.yaml
+##### NOTE: you need to give based64 value for this 4 variables defined under secret.yaml
 to obtain base64 values
 echo -n "myvalue" | base64
 -  MYSQL_HOST: somevalue_base64==
